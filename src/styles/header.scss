@@ -1,0 +1,39 @@
+
+
+.header {
+    border-bottom: 1px solid rgba(114, 112, 112, 0.322);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+
+    font-size: 1.2rem;
+    .header-left
+{
+    &>*:nth-child(1){
+        margin-right: 10px;
+    }
+}
+
+.header-right {
+
+    display: flex;
+    align-items: center;
+
+
+    &>* {
+        border: 1px solid rgba(136, 134, 134, 0.11);
+        padding: 5px;
+        margin-left: 5px;
+        background-color: white;
+        border-radius: 3px;
+    }
+
+    &>*:nth-child(1){
+        background-color: blue;
+    }
+
+}
+
+
+}

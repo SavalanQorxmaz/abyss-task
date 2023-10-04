@@ -1,0 +1,43 @@
+@import './header.scss';
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin containerS($screenWidth, $containerWidth) {
+   
+
+    @media screen and (min-width:$screenWidth) {
+
+        .container {
+            width: $containerWidth;
+            // border: 1px solid rgb(0, 0, 0);
+            // background-color: rgba(0, 0, 0, 0.5);
+            margin: auto;
+        }
+    
+            
+        }
+
+  
+}
+
+
+
+@include containerS(0px,100% );
+
+@include containerS(800px,90% );
+
+@include containerS(1000px,80% );
+@include containerS(1200px,60% );
+
+
+
+
+body {
+    background-color: rgb(240, 235, 235);
+}
