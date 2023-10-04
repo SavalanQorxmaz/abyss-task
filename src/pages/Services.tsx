@@ -1,8 +1,10 @@
-import React from 'react'
+import Categories from "../components/Categories"
 
 const Services = () => {
   return (
-    <div>Services</div>
+    <div className="services">
+      <Categories/>
+    </div>
   )
 }
 
