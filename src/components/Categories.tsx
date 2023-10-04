@@ -1,35 +1,59 @@
 import { useEffect, useState } from "react"
-import Category from "./Category"
+
+
+const Category = (props:any)=>{
+  const [categoryName,setCategoryName] = useState('')
+  const {subCategoryName,setSubCategoryName} = props
+  const [subCategoryNameArray,setSubCategoryNameArray] = useState<string[]>([''])
+  const [subCategoryCountChange,setSubCategoryCountChange] = useState({
+    prev:0,new:0
+  })
+    const addNewCategory = ()=>{
+      setSubCategoryNameArray(prev=> [...prev,''])
+  
+    }
+  
+    useEffect(()=>{
+      setSubCategoryCountChange(prev=>({['prev']:prev.new,['new']:subCategoryNameArray.length}))
+  
+    },[subCategoryNameArray])
+  
+  
+    return (
+      <div className="categories">
+          <div>
+            {
+              subCategoryName !==''?
+              <span>{subCategoryName}</span>
+              :
+              <input type="text" placeholder="ad daxil et" />
+            }
+          <button onClick={addNewCategory}>newcategory</button>
+          </div>
+  
+        <div className="category-group">
+        {
+            subCategoryCountChange.prev !==subCategoryCountChange.new ?
+            subCategoryNameArray.map(value=>(
+              <Category subCategoryname = {value} setSubCategoryName = {setCategoryName}/>
+            ))
+            :
+            null
+          }
+        </div>
+        
+      </div>
+    )
+}
+
+
 
 const Categories = () => {
 
-  const [subCategoryName,setSubCategoryName] = useState<string[]>([])
-const [subCategoryCountChange,setSubCategoryCountChange] = useState({
-  prev:0,new:0
-})
-  const addNewCategory = ()=>{
-    setSubCategoryName(prev=> [...prev,'salam'])
-
-  }
-
-  useEffect(()=>{
-    setSubCategoryCountChange(prev=>({['prev']:prev.new,['new']:subCategoryName.length}))
-
-  },[subCategoryName])
-
-
+ 
   return (
     <div className="categories">
-        <button onClick={addNewCategory}>newcategory</button>
-
-        {
-          subCategoryCountChange.prev !==subCategoryCountChange.new ?
-          subCategoryName.map(value=>(
-            <Category/>
-          ))
-          :
-          null
-        }
+    <Category subCategoryName = 'categories'/>
       
     </div>
   )

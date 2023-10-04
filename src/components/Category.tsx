@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Category = ( ) => {
+const Category = () => {
 
     
   return (
@@ -9,9 +9,8 @@ const Category = ( ) => {
             <span>Category</span>
             <span >+</span>
             <span>change</span>
-            <span>delete</span>
+            <span>Delete</span>
         </div>
-        <div>verticalline</div>
     </div>
   )
 }
